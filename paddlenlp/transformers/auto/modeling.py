@@ -351,10 +351,10 @@ class _BaseAutoModelClass:
             try:
                 if os.path.isfile(cached_standard_config):
                     resolved_vocab_file = cached_standard_config
-                elif url_file_exists(standard_community_url):
-                    resolved_vocab_file = get_path_from_url_with_filelock(standard_community_url, cache_dir)
                 elif os.path.isfile(cached_legacy_config):
                     resolved_vocab_file = cached_legacy_config
+                elif url_file_exists(standard_community_url):
+                    resolved_vocab_file = get_path_from_url_with_filelock(standard_community_url, cache_dir)
                 elif url_file_exists(legacy_community_url):
                     logger.info("Standard config do not exist, loading from legacy config")
                     resolved_vocab_file = get_path_from_url_with_filelock(legacy_community_url, cache_dir)
